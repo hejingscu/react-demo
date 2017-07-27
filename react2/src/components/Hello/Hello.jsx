@@ -1,7 +1,7 @@
 import React from 'react'
 import './Hello.scss'
 
-export default class App extends React.Component {
+export default class Hello extends React.Component {
   state = {
     msg: 'Hello World!',
     info: 'Hope you can enjoy your time with React.',
