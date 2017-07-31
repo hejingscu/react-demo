@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-class Hello extends React.Component{
+class Mine extends React.Component{
   constructor(props) {
         super(props)
         this.state = {msg: '111', info: '222'}
@@ -9,11 +9,11 @@ class Hello extends React.Component{
     render () {
         return (
             <div style={{color: '#fff'}}>
-        <div>333</div>
-        <p>555</p>
-      </div>
+            <div>999999999999999</div>
+            <p>00000000000000000</p>
+          </div>
         )
     }
 }
 
-export default Hello
+export default Mine

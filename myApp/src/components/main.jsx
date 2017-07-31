@@ -1,12 +1,12 @@
 import React from 'react'
+import Footbar from './common/footbar'
 
 const Main=React.createClass({
     render: function () {
         return (
-            <div style={{color: '#fff'}}>
+            <div>
                 {this.props.children}
-                <a href="#/test">test页</a>
-                <a href="#/hello">hello页</a>
+                <Footbar></Footbar>
             </div>
         )
     }
