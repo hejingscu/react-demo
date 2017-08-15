@@ -1,10 +1,12 @@
 import React from 'react'
 import { getShop,getBanner,getCategory } from '../api/api'
 import ShopList from './common/shopList'
+import TopSearch from './common/topSearch'
 import SearchOption from './common/searchOption'
 import Slide from './common/Slide'
 import axios from 'axios'
 import Swiper from 'swiper'
+
 
 
 class Index extends React.Component{
@@ -12,12 +14,21 @@ class Index extends React.Component{
         super(props)
         this.state = {shopList: [],bannerList: [], categoryList: []}
   }
+  refreshSearchPosition = (flg) => {
+    this.setState({searchOptionTop: flg})
+  }
+  //获取主页所有数据
   async getData(){
     let shop = await getShop()
     let banner = await getBanner()
     let category = await getCategory()
     this.setState({shopList: shop.data, bannerList: banner.data, categoryList: category.data})
-    console.log(this.state.bannerList)
+  }
+  //单独获取店铺列表
+  getShop = (option) => {
+    getShop().then( (res) => {
+      this.setState({shopList: res.data})
+    })
   }
   componentDidMount(){
     this.getData()
@@ -35,7 +46,8 @@ class Index extends React.Component{
         bannerList = this.state.bannerList,
         categoryList = this.state.categoryList
     return (
-      <div style={{fontSize: '0.26rem'}}>
+      <div style={{fontSize: '0.26rem'}} className="pageIndex">
+        <TopSearch></TopSearch>
         <div className="swiper-container">
           <div className="swiper-wrapper">
               {/* <div className="swiper-slide">1</div>
@@ -53,7 +65,7 @@ class Index extends React.Component{
           </div>
           <div className="swiper-pagination"></div>
         </div>
-        <div className="category">
+        <div className="category" id="category">
           {
             categoryList.map((item,key) => {
               return (
@@ -67,7 +79,9 @@ class Index extends React.Component{
             })
           }
         </div>
-        <SearchOption></SearchOption>
+        <div id="blockShopTitle" className="text-center">附近商家</div>
+        <div id="searchOptionPosition" className={this.state.searchOptionTop ? 'blockShopFlgShow' : 'blockShopFlgHide'}></div>
+        <SearchOption getShop={this.getShop} refreshSearchPosition={this.refreshSearchPosition}></SearchOption>
         <ShopList shopList={shopList}></ShopList>
       </div>
     )

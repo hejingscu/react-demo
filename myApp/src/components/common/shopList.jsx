@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {Link} from 'react-router'
 
 class ShopList extends Component {
   constructor(props){
@@ -11,7 +12,7 @@ class ShopList extends Component {
         {
           shopList.map((item,key)=>{
             return (
-              <a href="javascript:;" key={key} className="item-shop">
+              <Link to={'/order'} key={key} className="item-shop">
                   <div className="item-inner">
                     <div className="img"><img src={item.icon} alt=""/></div>
                     <div className="content">
@@ -23,7 +24,7 @@ class ShopList extends Component {
                       </div>
                     </div>
                   </div>
-              </a>
+              </Link>
             )
           })
         }

@@ -472,49 +472,116 @@ input[type="number"] {
 }
 
 //searchOption组件
-.block-option {
-    display: flex;
-    border-bottom: 1px solid #eee;
-    position: relative;
-    width: 100%;
-    z-index: 100;
-    background: #fff;
-    .active {
-        font-weight: bold;
-    }
-    .item-option {
-        flex: 1;
-        text-align: center;
-        height: .7rem;
-        line-height: .7rem;
-    }
-}
-
-//元素置顶
-.fixedTop {
-    position: fixed;
-    top: .84rem;
-    z-index: 10000;
-    width: 100%;
-}
-
-.notFixedTop {
-    position: relative;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-}
-
-.block-zh-rank {
-    background: #fff;
-    position: absolute;
-    width: 100%;
-    top: .61rem;
-    z-index: 101;
-    .item-rank {
-        height: .7rem;
-        line-height: .7rem;
-        padding: 0 6%;
+#searchOption {
+    .block-option {
+        display: flex;
         border-bottom: 1px solid #eee;
+        position: relative;
+        width: 100%;
+        z-index: 100;
+        background: #fff;
+        .active {
+            font-weight: bold;
+        }
+        .item-option {
+            flex: 1;
+            text-align: center;
+            height: .7rem;
+            line-height: .7rem;
+        }
+    }
+    //元素置顶
+    .fixedTop {
+        position: fixed;
+        top: .84rem;
+        z-index: 10000;
+        width: 100%;
+    }
+    .notFixedTop {
+        position: relative;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+    }
+    .block-zh-rank {
+        background: #fff;
+        position: absolute;
+        width: 100%;
+        top: .61rem;
+        z-index: 101;
+        .item-rank {
+            height: .7rem;
+            line-height: .7rem;
+            padding: 0 6%;
+            border-bottom: 1px solid #eee;
+        }
+    }
+}
+
+//主页顶部搜索框组件
+.block-search {
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+    height: .7rem;
+    display: flex;
+    flex-flow: row wrap;
+    .item {
+        float: left;
+        padding: .1rem 3%;
+        height: .84rem;
+        line-height: .5rem;
+        &>div {
+            border-radius: .3rem;
+        }
+    }
+    .position {
+        width: 40%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .item-position {
+        text-align: center;
+        background: #000;
+        opacity: .5;
+        color: #fff;
+        height: 100%;
+        line-height: .64rem;
+    }
+    .search {
+        width: 60%;
+    }
+    .search-extend {
+        //width: 100%;
+        text-align: center;
+        background: #fff;
+        .item-search {
+            background: #e4e5e6;
+            color: #eee;
+            a {
+                color: #888;
+            }
+        }
+    }
+    .item-search {
+        background: #fff;
+        color: #999;
+        padding-left: 6%;
+        height: 100%;
+        line-height: .64rem;
+        a {
+            display: inline-block;
+            width: 100%;
+        }
+    }
+}
+
+//首页
+.pageIndex {
+    .blockShopFlgHide {
+        height: .01rem;
+    }
+    .blockShopFlgShow {
+        height: 1.54rem;
     }
 }
